@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GRS OAuth2Orize Server Decision</title>
+  <!-- Needed for mobile sites to work -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Style sheets -->
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pure-min.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/base.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/dialog-modules.css">
+</head>
+<body>
+
+<form action="/dialog/authorize/decision" method="post" class="pure-form pure-form-stacked">
+  <input name="transaction_id" type="hidden" value="<%= transactionID %>">
+  <fieldset>
+    <!-- Upper box with Title, username, and password -->
+    <div class="upper-box">
+      <!-- Title -->
+      <div>
+        <div class="main-text">Decisión</div>
+        <div class="subtext">Servidor de Autorización GRS</div>
+      </div>
+      <div class="pure-control-group labels">
+        <p>
+
+        <p><%= user.name %>,</p>
+        La aplicación <b><%= client.name %></b> esta solicitando acceso a su información.
+        <p>¿Desea darle acceso a su información?</p>
+        </p>
+      </div>
+    </div>
+    <!-- Bottom box with Sign in -->
+    <div class="bottom-box">
+      <div class="pure-controls accept-cancel-buttons">
+        <div>
+          <input class="pure-button pure-button-primary" type="submit" value="Permitir" id="allow">
+          <!-- Cheat to make a bit of spacing -->
+          <span>&nbsp&nbsp</span>
+          <input class="pure-button" type="submit" value="Denegar" name="cancel" id="deny">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="from-text">
+    <a href="http://www.grselectrodomesticos.com">
+      GRS Servidor de Autorizaciones
+    </a>
+  </div>
+</form>
+
+</body>
+</html>
